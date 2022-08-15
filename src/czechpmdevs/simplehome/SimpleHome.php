@@ -11,6 +11,7 @@ use czechpmdevs\simplehome\commands\SethomeCommand;
 use pocketmine\command\Command;
 use pocketmine\player\Player;
 use pocketmine\plugin\PluginBase;
+use pocketmine\scheduler\ClosureTask;
 use pocketmine\utils\AssumptionFailedError;
 use pocketmine\utils\Config;
 use pocketmine\utils\Utils;
@@ -40,10 +41,14 @@ class SimpleHome extends PluginBase {
 	private array $commands = [];
 
 	public function onEnable(): void {
-		self::$instance = $this;
-		$this->registerCommands();
-		$this->loadData();
-	}
+        self::$instance = $this;
+        $this->registerCommands();
+        $this->loadData();
+
+        $this->getScheduler()->scheduleRepeatingTask(new ClosureTask(function(): void {
+            $this->saveData();
+        }), 400);
+    }
 
 	public function onDisable(): void {
 		$this->saveData();
