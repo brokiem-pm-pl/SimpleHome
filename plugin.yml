@@ -1,0 +1,24 @@
+name: SimpleHome
+api: [4.0.0]
+version: 1.1.0
+main: czechpmdevs\simplehome\SimpleHome
+author: CzechPMDevs
+authors: [VixikCZ]
+description: Simple home plugin
+website: https://github.com/CzechPMDevs/SmallPlugins/SimpleHome
+
+permissions:
+  simplehome.limit:
+    default: op
+    description: Allows player to have unlimited count of homes
+  simplehome.command.sethome:
+    default: true
+    description: Permission for /sethome <home>
+  simplehome.command.home:
+    default: true
+    description: Permission for /home <home>
+  simplehome.command.delhome:
+    default: true
+    description: Permission for /delhome <home>
+  simplehome.command.savehome:
+    default: op

@@ -1,12 +1,50 @@
-# SmallPlugins
-Repository for small pmmp plugins
+# SimpleHome
 
-- ServerTransfer: https://poggit.pmmp.io/ci/CzechPMDevs/SmallPlugins/ServerTransfer
+_**The easiest plugin to create and edit virtual homes.**_
 
-- WelcomeMessage: https://poggit.pmmp.io/ci/CzechPMDevs/SmallPlugins/WelcomeMessage
+### Commands:
 
-- UnlimitedSlots: https://poggit.pmmp.io/ci/CzechPMDevs/SmallPlugins/UnlimitedSlots
+- Sethome Command:
+    - Create home
+    - permission: sh.cmd.sethome (no-op)
+    - usage: /sethome <home>
+- Home Command:
+    - Displays list of homes or teleport to home
+    - permission: sh.cmd.home (no-op)
+    - usage: /home or /home <home>
+- Delhome Command:
+    - Remove home
+    - permission: sh.cmd.delhome (no-op)
+    - usage: /delhome <home>
 
-- BlockInfo: https://poggit.pmmp.io/ci/CzechPMDevs/SmallPlugins/BlockInfo
+### Permissions:
 
-- SimpleHome: https://poggit.pmmp.io/ci/CzechPMDevs/SmallPlugins/SimpleHome
+- sh.cmd:
+    - permission for all commands
+    - default: TRUE
+
+### API:
+
+- get SimpleHome instance
+
+`$simpleHome = SimpleHome::getInstance();`
+
+- get the player's home
+
+`$home = $simpleHome->getPlayerHome(Player $player, string $homeName);`
+
+- teleport player to his home
+
+`$home->teleport($player);`
+
+- create new home
+
+`$simpleHome->setPlayerHome($player, $newHome = new Home($player, [$x, $y, $z, $levelName], $homeName));`
+
+- delete home
+
+`$simpleHome->deleteHome($player, $newHome);`
+
+- get home list
+
+`$simpleHome->getHomeList();`

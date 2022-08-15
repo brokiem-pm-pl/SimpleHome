@@ -1,9 +1,0 @@
-name: Snow
-author: VixikCZ
-api: 4.0.0
-version: 1.1.0
-main: czechpmdevs\snow\Snow
-description: Plugin which adds falling snow to your PocketMine server
-
-mcpe-protocols:
-  - 475
